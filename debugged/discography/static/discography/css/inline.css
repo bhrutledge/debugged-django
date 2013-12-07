@@ -1,0 +1,23 @@
+.inline-group td.position input,
+.inline-group td.number input,
+.inline-group td.object_id input
+{
+    width: 3em;
+}
+
+.inline-group td.position,
+.inline-group td.object_id,
+.inline-group td.delete
+{
+    width: 5em;
+}
+
+.inline-group td.content_type
+{
+    width: 12em;
+}
+
+.inline-group td.content_type select
+{
+    width:10em;
+}

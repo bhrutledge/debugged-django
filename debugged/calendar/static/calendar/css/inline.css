@@ -1,0 +1,12 @@
+.inline-group td.position input,
+.inline-group td.billed input
+{
+    width: 3em;
+}
+
+.inline-group td.position,
+.inline-group td.featured,
+.inline-group td.delete
+{
+    width: 5em;
+}

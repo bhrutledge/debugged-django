@@ -1,0 +1,45 @@
+.inline-group td.position input,
+.inline-group td.width input,
+.inline-group td.height input
+{
+    width: 3em;
+}
+
+.inline-group td.position,
+.inline-group td.width,
+.inline-group td.height,
+.inline-group td.published,
+.inline-group td.featured,
+.inline-group td.delete
+{
+    width: 5em;
+}
+
+.inline-group td.object_type,
+.inline-group td.image_size
+{
+    width: 12em;
+}
+
+.inline-group td.object_type select,
+.inline-group td.image_size select
+{
+    width:10em;
+}
+
+.inline-group td.title input,
+.inline-group td.url input,
+.inline-group td.src input
+{
+    width: 20em;
+}
+
+.inline-group td.title
+{
+    width: 22em;
+}
+
+.inline-group td.content input
+{
+    width: 42em;
+}
