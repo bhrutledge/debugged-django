@@ -40,13 +40,13 @@ def mailing_list_form(request):
 def press_list(request):
     release_press = []
     for release in Release.objects.published().order_by('-release_date'):
-        links = release.links.published().filter(object_type='press').order_by('-featured', '-publish_date')
+        links = release.links.published().filter(object_type='press').order_by('-featured', '-source_date')
             
         if links.count():
             release_press.append({'release': release, 'press': links})
             
     event_type = ContentType.objects.get_for_model(Event)
-    event_press = Link.objects.published().filter(content_type=event_type, object_type='press').order_by('-featured', '-publish_date')
+    event_press = Link.objects.published().filter(content_type=event_type, object_type='press').order_by('-featured', '-source_date')
         
     return render_to_response('bandsite/press_list.html', 
                              {'release_press': release_press, 'event_press': event_press},
