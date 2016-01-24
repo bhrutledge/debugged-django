@@ -15,21 +15,21 @@ def contact_form(request):
     if request.method == 'POST':
         form = ContactForm(request.POST, auto_id=auto_id)
         if form.is_valid():
-            process_contact(form)            
+            process_contact(form)
     else:
         form = ContactForm(auto_id=auto_id)
 
     return render_to_response('bandsite/contact_form.html',
                               {'contact_form': form},
                               context_instance=RequestContext(request))
-                              
+
 def mailing_list_form(request):
     auto_id = 'mailing_list_%s'
 
     if request.method == 'POST':
         form = MailingListForm(request.POST, auto_id=auto_id)
         if form.is_valid():
-            process_mailing_list(form)            
+            process_mailing_list(form)
     else:
         form = MailingListForm(auto_id=auto_id)
 
@@ -38,16 +38,8 @@ def mailing_list_form(request):
                               context_instance=RequestContext(request))
 
 def press_list(request):
-    release_press = []
-    for release in Release.objects.published().order_by('-release_date'):
-        links = release.links.published().filter(object_type='press').order_by('-featured', '-source_date')
-            
-        if links.count():
-            release_press.append({'release': release, 'press': links})
-            
-    event_type = ContentType.objects.get_for_model(Event)
-    event_press = Link.objects.published().filter(content_type=event_type, object_type='press').order_by('-featured', '-source_date')
-        
-    return render_to_response('bandsite/press_list.html', 
-                             {'release_press': release_press, 'event_press': event_press},
-                             context_instance=RequestContext(request)) 
+    all_press = Link.objects.published().filter(object_type='press').order_by('-source_date')
+
+    return render_to_response('bandsite/press_list.html',
+                              { 'all_press': all_press, },
+                              context_instance=RequestContext(request))
