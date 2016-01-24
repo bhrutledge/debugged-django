@@ -1,4 +1,4 @@
 debugged-django
 ===============
 
-Django apps for creating a band website.
+Django apps for a band website CMS
